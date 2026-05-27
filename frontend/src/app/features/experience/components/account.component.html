@@ -1,0 +1,28 @@
+<section class="experience-shell">
+  <div class="experience-hero">
+    <p>ACCOUNT</p>
+    <h1>Account</h1>
+    <span>Manage profile, addresses, orders, and style preferences.</span>
+  </div>
+
+  <div class="experience-card">
+    <div class="form-grid">
+      <label>
+        <span>Email</span>
+        <input placeholder="you@example.com" />
+      </label>
+      <label>
+        <span>Name / Reference</span>
+        <input placeholder="Enter details" />
+      </label>
+      <label class="wide">
+        <span>Notes</span>
+        <textarea placeholder="Add delivery, account, or admin details"></textarea>
+      </label>
+    </div>
+    <div class="highlight-row">
+      <span *ngFor="let item of highlights">{{ item }}</span>
+    </div>
+    <button class="primary-action">Update Profile</button>
+  </div>
+</section>

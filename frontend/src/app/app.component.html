@@ -1,0 +1,32 @@
+<div class="promo-strip">{{ promo }}</div>
+<header class="main-nav">
+  <a class="brand" [routerLink]="['/']">Fashion Ecommerce Website<span>Studio</span></a>
+  <nav class="category-nav" (mouseleave)="closeMegaMenu()">
+    <a *ngFor="let cat of topCategories" [routerLink]="['/products']" [queryParams]="{ category: cat.toLowerCase() }" (mouseenter)="openMegaMenu(cat)">{{ cat }}</a>
+  </nav>
+  <div class="actions">
+    <input class="search" placeholder="Search for products, brands and more" />
+    <a class="nav-link" [routerLink]="['/auth/login']">Login</a>
+    <a class="nav-link signup" [routerLink]="['/auth/signup']">Signup</a>
+    <a class="icon-btn" [routerLink]="['/account']" aria-label="Profile">👤</a>
+    <a class="icon-btn" [routerLink]="['/wishlist']" aria-label="Wishlist">♡</a>
+    <a class="icon-btn cart-button" [routerLink]="['/cart']" aria-label="Cart">🛍<span>{{ cartCount }}</span></a>
+  </div>
+</header>
+<section class="mega-menu" *ngIf="activeMegaMenu" (mouseleave)="closeMegaMenu()">
+  <h4>{{ activeMegaMenu }}</h4>
+  <div class="mega-items">
+    <a *ngFor="let item of megaMenu[activeMegaMenu]" [routerLink]="['/products']">{{ item }}</a>
+  </div>
+</section>
+
+<main class="shell-content">
+  <section class="quick-links">
+    <a [routerLink]="['/']">Home</a>
+    <a [routerLink]="['/products']">Products</a>
+    <a [routerLink]="['/cart']">Cart</a>
+    <a [routerLink]="['/checkout']">Checkout</a>
+    <a [routerLink]="['/admin']">Admin</a>
+  </section>
+  <router-outlet></router-outlet>
+</main>
